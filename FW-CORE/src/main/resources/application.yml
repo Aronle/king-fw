@@ -1,0 +1,37 @@
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+logging:
+  file: king.log
+  path: log
+  level:
+    root: info
+    com.alibaba.nacos.client.naming: error
+king:
+  log: true
+  encrypt:
+    aes:
+      key: 8AcOuVAyVtbDG05F
+      iv: 2loMHb8sbZS0XXvc
+    rsa:
+      publicKey:
+      privateKey:
+# spring 的配置文件
+spring:
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: false
+
+

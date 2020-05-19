@@ -1,0 +1,41 @@
+server:
+  port: 10001
+spring:
+  liquibase:
+    enabled: false
+  redis:
+    database: 11
+    host: localhost
+    jedis:
+      pool:
+        max-idle: 300
+        max-wait: 30s
+    port: 6379
+
+  datasource:
+    url: jdbc:mysql://172.16.6.101/king?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #连接池配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      stat-view-servlet:
+        allow: 127.0.0.1
+        login-password: admin
+        login-username: admin
+        enabled: true
+        url-pattern: /druid/*
+      initial-size: 5
+      max-active: 100
+      max-wait: 60000
+      time-between-eviction-runs-millis: 30000
+      min-evictable-idle-time-millis: 60000
+      validation-query: SELECT 1 FROM DUAL
+      filters: stat
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000;${db.encryption}
+      connection-init-sqls: set names utf8mb4;
+      web-stat-filter:
+        enabled: true
+mybatis-plus:
+  mapper-locations: classpath*:com.mars.fw.web.mapper/*Mapper.xml

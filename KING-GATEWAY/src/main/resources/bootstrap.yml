@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: king-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.config.address}
+        shared-dataids: king-gateway.yml
+        refreshable-dataids:  king-gateway.yml
+        namespace: ${config.namespace}
+      discovery:
+        server-addr: ${nacos.discovery.address}
+        namespace: ${discovery.namespace}
+        register-enabled: true
+  main:
+    allow-bean-definition-overriding: true

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ${application.name}
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.config.address}
+        shared-dataids: ${spring.application.name}.yml
+        refreshable-dataids:  ${spring.application.name}.yml
+        namespace: ${config.namespace}
+      discovery:
+        server-addr: ${nacos.discovery.address}
+        namespace: ${discovery.namespace}
+        register-enabled: true
+  main:
+    allow-bean-definition-overriding: true
