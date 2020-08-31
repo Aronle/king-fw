@@ -51,6 +51,12 @@ core-cache: 基础缓存工具类提供，可扩展
             <groupId>com.mars.fw</groupId>
             <artifactId>FW-CORE</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+             <exclusions>
+                <exclusion>
+                    <groupId>com.mars.fw</groupId>
+                    <artifactId>FW-CLOUD</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--有需要引入-->
         <dependency>
