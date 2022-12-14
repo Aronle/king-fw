@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.24</version>
+            <version>1.32</version>
         </dependency>
 
         <!--框架其他核心功能依赖的第三方包-swagger -->
